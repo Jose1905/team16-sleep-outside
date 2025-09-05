@@ -7,6 +7,8 @@
 
  - https://byui-cse.github.io/wdd330-ww-course/week01/team.html
 
+ - Netlify website: https://16sleepoutside.netlify.app
+
 ### Prerequisites
 
 - You must have Node installed to run the following commands.
