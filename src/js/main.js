@@ -1,10 +1,10 @@
-// Update cart count on page load
-document.addEventListener("DOMContentLoaded", () => {
-  updateCartCount(".cart-count");
-});
+import ProductData from "./ProductData.mjs";
+import ProductList from "./ProductList.mjs";
 
-export function updateCartCount() {
-  let cartCountElem = document.querySelector(".cart-count");
-  const cartItems = JSON.parse(localStorage.getItem("so-cart")) || [];
-  cartCountElem.textContent = cartItems.length;
-}
+const dataSource = new ProductData("tents");
+
+const element = document.querySelector(".product-list");
+
+const productList = new ProductList("Tents", dataSource, element);
+
+productList.init();

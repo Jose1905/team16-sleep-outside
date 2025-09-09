@@ -1,10 +1,9 @@
 import { getLocalStorage } from "./utils.mjs";
-import { updateCartCount } from "./main.js";
+//import { updateCartCount } from "./main.js";
 
 // Update cart count on page load
-document.addEventListener("DOMContentLoaded", () => {
-  updateCartCount(".cart-count");
-});
+//document.addEventListener("DOMContentLoaded", () => {
+  //updateCartCount(".cart-count");});
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
