@@ -29,3 +29,18 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
+
+export function renderListWithTemplate(
+  templateFn,
+  parentElement,
+  list,
+  position = "afterbegin",
+  clear = false
+) {
+  if (!parentElement) return;
+  if (clear) parentElement.innerHTML = "";
+  if (!Array.isArray(list) || list.length === 0) return;
+
+  const html = list.map(templateFn).join("");
+  parentElement.insertAdjacentHTML(position, html);
+}
