@@ -36,4 +36,3 @@ export default class ProductDetails {
         updateCartCount(".cart-count"); // Update cart count after adding product
     }
 }
-
