@@ -32,7 +32,7 @@ export default class ProductList {
     /*renderList(productList) {
         const html = productList.map(productCardTemplate).join("");
 
-        console.log(html);
+        console.log(html); 
         this.listElement.innerHTML = "";
         this.listElement.insertAdjacentHTML("afterbegin",html);
     }*/
