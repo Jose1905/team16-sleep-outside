@@ -8,8 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart") || []; //  fallback to []
-
-  const cartItems = getLocalStorage("so-cart");
   if (!cartItems || cartItems.length === 0) {
     document.querySelector(".product-list").innerHTML =
       "<li>Your cart is empty.</li>";
