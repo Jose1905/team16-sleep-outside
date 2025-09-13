@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function renderCartContents() {
+  const cartItems = getLocalStorage("so-cart") || []; //  fallback to []
+
   const cartItems = getLocalStorage("so-cart");
   if (!cartItems || cartItems.length === 0) {
     document.querySelector(".product-list").innerHTML =
@@ -35,4 +37,23 @@ function cartItemTemplate(item) {
   return newItem;
 }
 
+// Cart total functionality JTG
+function cartTotal() {
+  const cartItems = getLocalStorage("so-cart"); // gets array from localStorage
+  const totalElement = document.querySelector(".cart-total");
+
+  if (cartItems && cartItems.length > 0) {
+    // add up all FinalPrice values
+    const total = cartItems.reduce((sum, item) => sum + item.FinalPrice, 0);
+
+    // show total inside the <div class="cart-total">
+    totalElement.textContent = `Total: $${total.toFixed(2)}`;
+    totalElement.style.display = "block";
+  } else {
+    // hide the div if no items
+    totalElement.style.display = "none";
+  }
+}
+
 renderCartContents();
+cartTotal();
