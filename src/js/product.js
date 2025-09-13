@@ -11,10 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
 const dataSource = new ProductData("tents");
 const productId = getParam("product");
 
-console.log(dataSource.findProductById(productId));
 const productDetails = new ProductDetails(productId, dataSource);
 productDetails.init();
-
 
 // Removed this handler since the class already handles that. JTG
 // add to cart button event handler
