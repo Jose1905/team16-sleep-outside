@@ -106,8 +106,10 @@ button {
   margin: auto;
   display: block;
   border: 0;
+  border-radius: 10px; /*Adding a round border*/
   font-size: var(--large-font);
   cursor: pointer;
+  grid-column: 3/3; /*Making it show int the right down corner in cart*/
 }
 
 .divider {

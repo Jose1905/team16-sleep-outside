@@ -1,3 +1,4 @@
+import { updateCartCount } from "./main";
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 export default class ProductDetails {

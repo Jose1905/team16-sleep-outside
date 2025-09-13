@@ -13,7 +13,9 @@ function renderCartContents() {
       "<li>Your cart is empty.</li>";
     return;}
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+
 }
 
 function cartItemTemplate(item) {
@@ -30,7 +32,8 @@ function cartItemTemplate(item) {
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: 1</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
-</li>`;
+  <button class="remove-button" data-id="${item.Id}">X</button>
+  </li>`;
 
   return newItem;
 }
@@ -55,3 +58,28 @@ function cartTotal() {
 
 renderCartContents();
 cartTotal();
+
+// Begin Fernando Costa Jr 09/13/2025 - Remove item from cart function
+
+document.querySelectorAll('.remove-button').forEach(button => {
+  button.addEventListener('click', (e) => {
+    const id = e.target.getAttribute('data-id');
+    removeFromCart(id);
+  });
+});
+
+function removeFromCart(id) {
+  console.log(id);
+  
+  let cartItems = JSON.parse(localStorage.getItem("so-cart"));
+
+  console.log(cartItems);
+
+  cartItems = cartItems.filter(item => item.Id !== id);
+
+  localStorage.setItem('so-cart', JSON.stringify(cartItems));
+
+  location.reload();
+}
+
+// End Fernando Costa Jr 09/13/2025 - Remove item from cart function
