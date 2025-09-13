@@ -5,7 +5,7 @@ const dataSource = new ProductData("tents");
 const productList = new ProductList(
   dataSource.category,
   dataSource,
-  document.querySelector(".product-list"),
+  document.querySelector("#index-product-list"), //made the selector more specific so that it doesn't affect the cart ul class too! JTG.
 );
 productList.init();
 
