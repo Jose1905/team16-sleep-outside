@@ -3,6 +3,10 @@ import { updateCartCount } from "./main.js";
 import { getParam, qs } from "./utils.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 
+import { loadHeaderFooter } from "./utils.mjs";
+
+loadHeaderFooter();
+
 // Update cart count on page load
 document.addEventListener("DOMContentLoaded", () => {
   updateCartCount(".cart-count");
