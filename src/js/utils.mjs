@@ -44,3 +44,63 @@ export function renderListWithTemplate(
   const html = list.map(templateFn).join("");
   parentElement.insertAdjacentHTML(position, html);
 }
+
+export function renderWithTemplate(
+  template,
+  parentElement,
+  data,
+  callback
+) {
+  /*if (!parentElement) return;
+  if (clear) parentElement.innerHTML = "";
+  if (!Array.isArray(list) || list.length === 0) return;
+
+  const html = list.map(templateFn).join("");
+  parentElement.insertAdjacentHTML(position, html);*/
+  parentElement.innerHTML = template;
+
+  //console.log(parentElement);
+
+  if (callback) {
+    //callback(data);
+  }
+}
+
+export async function loadTemplate(
+  path
+) {
+  try {
+    const resp = await fetch(path);
+
+    if (!resp.ok) {
+      throw new Error(`Error status:${resp.status}`)
+    }
+
+    const html = await resp.text();
+
+    return html;
+  } catch (error) {
+    console.log(error);
+  }
+
+  return "";
+}
+
+export async function loadHeaderFooter() {
+  const headerHtml = await loadTemplate("../partials/header.html");
+  const footerHtml = await loadTemplate("../partials/footer.html");
+
+  const headerElem = document.querySelector("#header");
+  const footerElem = document.querySelector("#footer");
+
+  //renderWithTemplate(headerHtml, headerElem, null, updateCartCount);
+  //renderWithTemplate(footerHtml, footerElem, null, updateCartCount);
+  renderWithTemplate(headerHtml, headerElem);
+  renderWithTemplate(footerHtml, footerElem);
+}
+
+/*export function updateCartCount() {
+  let cartCountElem = document.querySelector(".cart-count");
+  const cartItems = JSON.parse(localStorage.getItem("so-cart")) || [];
+  cartCountElem.textContent = cartItems.length;
+}*/

@@ -1,5 +1,8 @@
 import { getLocalStorage } from "./utils.mjs";
 import { updateCartCount } from "./main.js";
+import { loadHeaderFooter } from "./utils.mjs";
+
+loadHeaderFooter();
 
 // Update cart count on page load
 document.addEventListener("DOMContentLoaded", () => {
@@ -61,9 +64,9 @@ cartTotal();
 
 // Begin Fernando Costa Jr 09/13/2025 - Remove item from cart function
 
-document.querySelectorAll('.remove-button').forEach(button => {
-  button.addEventListener('click', (e) => {
-    const id = e.target.getAttribute('data-id');
+document.querySelectorAll(".remove-button").forEach(button => {
+  button.addEventListener("click", (e) => {
+    const id = e.target.getAttribute("data-id");
     removeFromCart(id);
   });
 });
@@ -77,7 +80,7 @@ function removeFromCart(id) {
 
   cartItems = cartItems.filter(item => item.Id !== id);
 
-  localStorage.setItem('so-cart', JSON.stringify(cartItems));
+  localStorage.setItem("so-cart", JSON.stringify(cartItems));
 
   location.reload();
 }
