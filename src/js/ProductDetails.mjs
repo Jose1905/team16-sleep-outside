@@ -31,7 +31,6 @@ export default class ProductDetails {
     }
 
     addProductToCart() {
-        console.log("got here");
         const cartItems = getLocalStorage("so-cart") || []; // get cart array of items from local storage if null set to empty array
 
         /*||| Begin Jay J. 09/19/2025 Duplicate Cart Item checking |||*/
