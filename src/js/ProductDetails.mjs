@@ -10,7 +10,7 @@ export default class ProductDetails {
 
     async init(){
         this.product = await this.dataSource.findProductById(this.productId);
-        console.log(this.product);
+        //console.log(this.product);
         this.renderProductDetails();
         document.getElementById("addToCart").addEventListener("click", this.addProductToCart.bind(this));
     }
@@ -32,7 +32,19 @@ export default class ProductDetails {
 
     addProductToCart() {
         const cartItems = getLocalStorage("so-cart") || []; // get cart array of items from local storage if null set to empty array
-        cartItems.push(this.product);
+
+        /*||| Begin Jay J. 09/19/2025 Duplicate Cart Item checking |||*/
+        const exists = cartItems.find(item => item.product.Id === this.product.Id);
+
+        if (!exists) {
+            //push item onto cart normally if it's not there
+            cartItems.push({product: this.product, quantity: 1});
+        } else {
+            //otherwise increment the count
+            exists.quantity += 1;
+        }
+        /*||| End Jay J. 09/19/2025 Duplicate Cart Item checking |||*/
+
         setLocalStorage("so-cart", cartItems);
         updateCartCount(".cart-count"); // Update cart count after adding product
     }
