@@ -1,9 +1,7 @@
 import ProductData from "./ProductData.mjs";
 import { updateCartCount } from "./main.js";
-import { getParam, qs } from "./utils.mjs";
+import { loadHeaderFooter, getParam } from "./utils.mjs";
 import ProductDetails from "./ProductDetails.mjs";
-
-import { loadHeaderFooter } from "./utils.mjs";
 
 loadHeaderFooter();
 
@@ -12,10 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCartCount(".cart-count");
 });
 
-const dataSource = new ProductData("tents");
+const category = getParam("category");
+
+const dataSource = new ProductData(category);
+
 const productId = getParam("product");
 
 const productDetails = new ProductDetails(productId, dataSource);
+
 productDetails.init();
 
 // Removed this handler since the class already handles that. JTG

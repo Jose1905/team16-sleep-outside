@@ -9,8 +9,7 @@ export default class ProductDetails {
     }    
 
     async init(){
-        this.product = await this.dataSource.findProductById(this.productId);
-        //console.log(this.product);
+        this.product = await this.dataSource.findProductById(this.productId)
         this.renderProductDetails();
         document.getElementById("addToCart").addEventListener("click", this.addProductToCart.bind(this));
     }
@@ -20,7 +19,7 @@ export default class ProductDetails {
         document.querySelector("h3").textContent = this.product.NameWithoutBrand;
 
         const productImage = document.querySelector("img.divider");
-        productImage.src = this.product.Image;
+        productImage.src = this.product.Images.PrimaryLarge;
         productImage.alt = this.product.NameWithoutBrand;
 
         document.querySelector(".product-card__price").textContent = this.product.FinalPrice;

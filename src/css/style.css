@@ -94,6 +94,19 @@ p {
   margin-top: -1.7em;
 }
 
+.categories {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  margin-top: 1.3em;
+}
+
+.categories img {
+  width: 90px;
+  height: 90px;
+  
+}
+
 /* utility classes */
 .highlight {
   color: var(--tertiary-color);
