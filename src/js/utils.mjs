@@ -99,8 +99,8 @@ export async function loadHeaderFooter() {
   renderWithTemplate(footerHtml, footerElem);
 }
 
-/*export function updateCartCount() {
+export function updateCartCount() {
   let cartCountElem = document.querySelector(".cart-count");
   const cartItems = JSON.parse(localStorage.getItem("so-cart")) || [];
   cartCountElem.textContent = cartItems.length;
-}*/
+}
