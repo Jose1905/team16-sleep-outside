@@ -19,9 +19,11 @@ export default class ProductDetails {
         document.querySelector("h2").textContent = this.product.Brand.Name;
         document.querySelector("h3").textContent = this.product.NameWithoutBrand;
 
-        const productImage = document.querySelector("img.divider");
-        productImage.src = this.product.Image;
+        const productImage = document.querySelector("#p-image"); // Make sure your HTML has <img id="p-image">
+        productImage.src = this.product.Images?.PrimaryExtraLarge || this.product.PrimaryLarge || '/images/default-product.jpg';
         productImage.alt = this.product.NameWithoutBrand;
+
+
 
         document.querySelector(".product-card__price").textContent = this.product.FinalPrice;
         document.querySelector(".product__color").textContent = this.product.Colors[0].ColorName;

@@ -12,9 +12,9 @@ function productCardTemplate(product) {
 
   return `<li class="product-card">
       <a href="product_pages/?product=${product.Id}">
-        <img src="${product.Image}" alt="Image of ${product.NameWithoutBrand}">
-        <h2 class="card__brand">${product.Brand.Name}</h2>
-        <h3 class="card__name">${product.Name}</h3>
+        <img src="${product.Images.PrimaryMedium}" alt="${product.Name}">
+        <h2>${product.Brand.Name}</h2>
+        <p>${product.NameWithoutBrand}</p>
         <p class="product-card__price">${priceHtml}</p>
       </a>
     </li>`;
@@ -29,27 +29,18 @@ export default class ProductList {
   }
 
   async init() {
-    try {
-      const list = await this.dataSource.getData();
-      //console.log(this.list);
-      //this.renderList(list);
-      renderListWithTemplate(
-        productCardTemplate,
-        this.listElement,
-        list,
-        "afterbegin",
-        true,
-      );
-    } catch (error) {
-      console.log(error);
-    }
+    const list = await this.dataSource.getData(this.category);
+    this.renderList(list);
+    document.querySelector(".title").textContent = this.category;
   }
 
-  /*renderList(productList) {
-        const html = productList.map(productCardTemplate).join("");
+  renderList(list) {
+    // const htmlStrings = list.map(productCardTemplate);
+    // this.listElement.insertAdjacentHTML("afterbegin", htmlStrings.join(""));
 
-        console.log(html);
-        this.listElement.innerHTML = "";
-        this.listElement.insertAdjacentHTML("afterbegin",html);
-    }*/
+    // apply use new utility function instead of the commented code above
+    renderListWithTemplate(productCardTemplate, this.listElement, list);
+
+  }
+
 }

@@ -4,13 +4,8 @@ import { loadHeaderFooter } from "./utils.mjs";
 
 loadHeaderFooter();
 
-const dataSource = new ProductData("tents");
-const productList = new ProductList(
-  dataSource.category,
-  dataSource,
-  document.querySelector("#index-product-list"), //made the selector more specific so that it doesn't affect the cart ul class too! JTG.
-);
-productList.init();
+import { renderProductListing } from "./product-listing.js";
+renderProductListing();
 
 // Update cart count on page load
 document.addEventListener("DOMContentLoaded", () => {

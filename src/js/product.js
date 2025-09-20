@@ -1,9 +1,9 @@
 import ProductData from "./ProductData.mjs";
 import { updateCartCount } from "./main.js";
-import { getParam, qs } from "./utils.mjs";
+import { getParam } from "./utils.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 
-import { loadHeaderFooter } from "./utils.mjs";
 
 loadHeaderFooter();
 
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCartCount(".cart-count");
 });
 
-const dataSource = new ProductData("tents");
+const dataSource = new ProductData();
 const productId = getParam("product");
 
 const productDetails = new ProductDetails(productId, dataSource);
