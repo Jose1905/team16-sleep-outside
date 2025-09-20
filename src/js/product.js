@@ -1,9 +1,7 @@
 import ProductData from "./ProductData.mjs";
 import { updateCartCount } from "./main.js";
-import { getParam, qs } from "./utils.mjs";
+import { getParam, loadHeaderFooter } from "./utils.mjs";
 import ProductDetails from "./ProductDetails.mjs";
-
-import { loadHeaderFooter } from "./utils.mjs";
 
 loadHeaderFooter();
 

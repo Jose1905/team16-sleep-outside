@@ -274,3 +274,34 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+/* Start category styles */
+.categories {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.categories li {
+  margin: 0 1em;
+}
+
+.categories a {
+  text-decoration: none;
+  color: var(--dark-grey);
+  font-weight: bold;
+}
+
+.categories a:hover {
+  color: var(--tertiary-color);
+}
+
+.category-card {
+  max-width: 300px;
+  margin: 0.5em;
+  text-align: center;
+}
+
+/* End category styles */

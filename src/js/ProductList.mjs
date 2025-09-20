@@ -1,7 +1,6 @@
 import { renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
-
   /*||| BEGIN Jay Jorgensen 09/12/2025 - Discount indicator-product listing |||*/
   let priceHtml = `$${product.FinalPrice.toFixed(2)}`;
 
@@ -30,16 +29,15 @@ export default class ProductList {
 
   async init() {
     try {
-      const list = await this.dataSource.getData();
-      //console.log(this.list);
-      //this.renderList(list);
-      renderListWithTemplate(
+      const list = await this.dataSource.getData(this.category);
+      this.renderListWithTemplate(
         productCardTemplate,
         this.listElement,
         list,
         "afterbegin",
         true,
       );
+      document.querySelector(".title").textContent = this.category;
     } catch (error) {
       console.log(error);
     }

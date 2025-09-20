@@ -35,7 +35,7 @@ export function renderListWithTemplate(
   parentElement,
   list,
   position = "afterbegin",
-  clear = false
+  clear = false,
 ) {
   if (!parentElement) return;
   if (clear) parentElement.innerHTML = "";
@@ -45,12 +45,7 @@ export function renderListWithTemplate(
   parentElement.insertAdjacentHTML(position, html);
 }
 
-export function renderWithTemplate(
-  template,
-  parentElement,
-  data,
-  callback
-) {
+export function renderWithTemplate(template, parentElement, data, callback) {
   /*if (!parentElement) return;
   if (clear) parentElement.innerHTML = "";
   if (!Array.isArray(list) || list.length === 0) return;
@@ -62,18 +57,16 @@ export function renderWithTemplate(
   //console.log(parentElement);
 
   if (callback) {
-    //callback(data);
+    callback(data);
   }
 }
 
-export async function loadTemplate(
-  path
-) {
+export async function loadTemplate(path) {
   try {
     const resp = await fetch(path);
 
     if (!resp.ok) {
-      throw new Error(`Error status:${resp.status}`)
+      throw new Error(`Error status:${resp.status}`);
     }
 
     const html = await resp.text();
