@@ -94,6 +94,16 @@ p {
   margin-top: -1.7em;
 }
 
+/* BreadCrumb */
+.breadcrumb {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  font-size: larger;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Categories */
 .categories {
   display: flex;
   justify-content: space-evenly;
@@ -104,7 +114,6 @@ p {
 .categories img {
   width: 90px;
   height: 90px;
-  
 }
 
 /* utility classes */
