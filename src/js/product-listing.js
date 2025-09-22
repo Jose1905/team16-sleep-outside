@@ -14,4 +14,5 @@ const productList = new ProductList(
   dataSource,
   document.querySelector("#index-product-list"), //made the selector more specific so that it doesn't affect the cart ul class too! JTG.
 );
+
 productList.init();

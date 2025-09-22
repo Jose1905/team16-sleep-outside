@@ -31,9 +31,6 @@ export default class ProductList {
   async init() {
     try {
       const list = await this.dataSource.getData(this.category);
-      //console.log(list);
-      //console.log(this.list);
-      //this.renderList(list);
       renderListWithTemplate(
         productCardTemplate,
         this.listElement,
@@ -45,12 +42,4 @@ export default class ProductList {
       console.log(error);
     }
   }
-
-  /*renderList(productList) {
-        const html = productList.map(productCardTemplate).join("");
-
-        console.log(html);
-        this.listElement.innerHTML = "";
-        this.listElement.insertAdjacentHTML("afterbegin",html);
-    }*/
 }
