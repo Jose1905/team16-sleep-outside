@@ -318,3 +318,52 @@ footer {
   text-align: center;
   font-weight: bold;
 }
+
+/* Container for alerts */
+#alerts {
+  position: fixed;
+  top: 30px;              /* distance from top */
+  left: 50%;              /* center horizontally */
+  transform: translateX(-50%); /* shift back to true center */
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Individual alert */
+.alert-list {
+  padding: 18px 25px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-align: center;
+  min-width: 280px;
+  max-width: 400px;
+
+  /* animation in + out */
+  opacity: 0;
+  animation: fadeIn 0.4s ease forwards, fadeOut 0.5s ease 4s forwards;
+}
+
+/* Fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade out */
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+}
