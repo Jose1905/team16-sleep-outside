@@ -418,6 +418,25 @@ form input:focus {
   color: #007bff;
 }
 
+.alert {
+  background-color: #f8d7da;
+  color: #842029;
+  border: 1px solid #f5c2c7;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert button.alert-close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
 
 @media screen and (min-width: 500px) {
   body {

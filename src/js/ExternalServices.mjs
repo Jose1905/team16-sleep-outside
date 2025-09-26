@@ -1,40 +1,50 @@
-
 const baseURL = import.meta.env.VITE_SERVER_URL;
 
-function convertToJson(res) {
+async function convertToJson(res) {
+  let jsonResponse;
+
+  try {
+    // Try to parse the response body
+    jsonResponse = await res.json();
+  } catch (err) {
+    // Fallback if response body is empty or not valid JSON
+    jsonResponse = {};
+  }
+
   if (res.ok) {
-    return res.json();
+    return jsonResponse;
   } else {
-    throw new Error("Bad Response");
+    // Throw detailed error info for catch blocks to handle
+    throw { 
+      name: "servicesError", 
+      message: jsonResponse.message || "Unknown error occurred", 
+      status: res.status 
+    };
   }
 }
 
 export default class ExternalServices {
-  constructor() {
-    // this.category = category;
-    // this.path = `../public/json/${this.category}.json`;
+  async fetchData(endpoint, options = {}) {
+    const response = await fetch(`${baseURL}${endpoint}`, options);
+    return await convertToJson(response);
   }
+
   async getData(category) {
-    const response = await fetch(`${baseURL}products/search/${category}`);
-    const data = await convertToJson(response);
-    
-    return data.Result;
+    const data = await this.fetchData(`products/search/${category}`);
+    return data?.Result || [];
   }
+
   async findProductById(id) {
-    const response = await fetch(`${baseURL}product/${id}`);
-    const data = await convertToJson(response);
-    // console.log(data.Result);
-    return data.Result;
+    const data = await this.fetchData(`product/${id}`);
+    return data?.Result || null;
   }
 
   async checkout(payload) {
     const options = {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     };
-    return await fetch(`${baseURL}checkout/`, options).then(convertToJson);
+    return await this.fetchData("checkout/", options);
   }
 }
