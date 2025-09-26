@@ -1,4 +1,4 @@
-import { renderListWithTemplate } from "./utils.mjs";
+import {renderListWithTemplate} from "./utils.mjs";
 
 function productCardTemplate(product) {
 
@@ -39,7 +39,7 @@ export default class ProductList {
         true,
       );
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   }
 }

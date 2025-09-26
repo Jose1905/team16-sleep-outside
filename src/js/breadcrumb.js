@@ -11,16 +11,16 @@ const id = params.get("product");
 // Getting <ol> that holds the breadcrumb feature
 const breadcrumb = document.querySelector(".breadcrumb");
 
-// Adds breadcrumb
-function breadCrumber() {
-  // Interval so it gets the .product-card tags after they are rendered asynchronously
+//Adds breadcrumb
+function breadCrumber(cat) {
+  //Interval so it gets the .product-card tags after they are rendered assynchronously
   const interval = setInterval(() => {
     const cards = document.querySelectorAll(".product-card");
     if (cards.length > 0) {
-      // Creates Breadcrumb and adds it dynamically
+      //Creates Breadcrumb and adds it dynamically
       const li = document.createElement("li");
-      if (category) {
-        li.innerHTML = `${category} -> ${cards.length} items`;
+      if (cat) {
+        li.innerHTML = `${cat} -> ${cards.length} items`;
         breadcrumb.appendChild(li);
       } else {
         li.innerHTML = "";
@@ -32,7 +32,7 @@ function breadCrumber() {
 
 // Gets saved category to display it in the products page dynamically
 function getId() {
-  const temporary = localStorage.getItem("category");
+  let temporary = localStorage.getItem("category");
   const li = document.createElement("li");
   li.innerHTML = temporary;
   breadcrumb.appendChild(li);
