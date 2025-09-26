@@ -2,14 +2,14 @@ import ProductData from "./ProductData.mjs";
 import { updateCartCount } from "./main.js";
 import { loadHeaderFooter, getParam } from "./utils.mjs";
 import ProductDetails from "./ProductDetails.mjs";
-import { loadHeaderFooter } from "./utils.mjs";
 
 loadHeaderFooter();
 
 // Update cart count on page load
 document.addEventListener("DOMContentLoaded", () => {
-  updateCartCount(".cart-count");
+  updateCartCount();   // no argument
 });
+
 
 const category = getParam("category");
 
