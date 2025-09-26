@@ -7,7 +7,8 @@ import Alert from "./Alert";
 loadHeaderFooter();
 
 const category = getParam("category");
-document.querySelector(".products h2").textContent = `Top Products: ${category.charAt(0).toUpperCase()}${category.slice(1)}`;
+document.querySelector(".products h2").textContent =
+  `Top Products: ${category.charAt(0).toUpperCase()}${category.slice(1)}`;
 
 const dataSource = new ProductData();
 const productList = new ProductList(

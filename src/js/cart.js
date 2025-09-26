@@ -33,13 +33,21 @@ function renderCartContents() {
   });
 
   // Quantity increase/decrease buttons PVA
-  document.querySelectorAll(".qty-increase").forEach((button) =>
-    button.addEventListener("click", (e) => changeQuantity(e.currentTarget.dataset.id, 1))
-  );
+  document
+    .querySelectorAll(".qty-increase")
+    .forEach((button) =>
+      button.addEventListener("click", (e) =>
+        changeQuantity(e.currentTarget.dataset.id, 1),
+      ),
+    );
 
-  document.querySelectorAll(".qty-decrease").forEach((button) =>
-    button.addEventListener("click", (e) => changeQuantity(e.currentTarget.dataset.id, -1))
-  );
+  document
+    .querySelectorAll(".qty-decrease")
+    .forEach((button) =>
+      button.addEventListener("click", (e) =>
+        changeQuantity(e.currentTarget.dataset.id, -1),
+      ),
+    );
 
   // Quantity manual input PVA
   document.querySelectorAll(".qty-input").forEach((input) =>
@@ -51,7 +59,7 @@ function renderCartContents() {
         e.currentTarget.value = 1;
         setQuantity(id, 1);
       }
-    })
+    }),
   );
 
   cartTotal(); // update totals after render PVA
@@ -86,7 +94,11 @@ function cartTotal() {
   if (!totalElement) return;
 
   if (cartItems.length > 0) {
-    const total = cartItems.reduce((sum, item) => sum + (Number(item.product?.FinalPrice) || 0) * (item.quantity || 1), 0);
+    const total = cartItems.reduce(
+      (sum, item) =>
+        sum + (Number(item.product?.FinalPrice) || 0) * (item.quantity || 1),
+      0,
+    );
     totalElement.textContent = `Total: $${total.toFixed(2)}`;
     totalElement.style.display = "block";
   } else totalElement.style.display = "none";
