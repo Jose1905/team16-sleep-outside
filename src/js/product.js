@@ -7,9 +7,8 @@ loadHeaderFooter();
 
 // Update cart count on page load
 document.addEventListener("DOMContentLoaded", () => {
-  updateCartCount();   // no argument
+  updateCartCount(); // no argument
 });
-
 
 const category = getParam("category");
 

@@ -6,13 +6,8 @@ function alertTemplate(alert) {
   `;
 }
 
-function renderWithTemplate(
-  template,
-  parentElement,
-  data,
-  callback
-) {
-  parentElement.innerHTML += template;  
+function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.innerHTML += template;
   if (callback) {
     callback(data, parentElement);
   }
@@ -32,7 +27,7 @@ export default class Alert {
   }
 
   async getData() {
-    const response = await fetch(`../json/${this.file}.json`);
+    const response = await fetch(`/json/${this.file}.json`);
     const data = await convertToJson(response);
     console.log(data);
     return data;
@@ -42,9 +37,9 @@ export default class Alert {
     const alerts = await this.getData();
     const main = document.querySelector("main");
     if (alerts && alerts.length > 0) {
-        const htmlElement = document.querySelector("#alerts");
-        const template = alerts.map(alertTemplate).join("");
-        renderWithTemplate(template, htmlElement);
+      const htmlElement = document.querySelector("#alerts");
+      const template = alerts.map(alertTemplate).join("");
+      renderWithTemplate(template, htmlElement);
     }
   }
 }

@@ -12,8 +12,10 @@ export function updateCartCount() {
   if (!cartCountElem) return; // nothing to update yet
 
   const cartItems = JSON.parse(localStorage.getItem("so-cart")) || [];
-  const totalQty = cartItems.reduce((sum, item) => sum + (item.quantity || 1), 0);
+  const totalQty = cartItems.reduce(
+    (sum, item) => sum + (item.quantity || 1),
+    0,
+  );
 
   cartCountElem.textContent = totalQty;
 }
-
