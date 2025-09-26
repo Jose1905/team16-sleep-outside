@@ -1,5 +1,3 @@
-import { renderWithTemplate } from "./utils.mjs";
-
 
 function alertTemplate(alert) {
   return `
@@ -9,8 +7,12 @@ function alertTemplate(alert) {
   `;
 }
 
-
-
+function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.innerHTML += template;
+  if (callback) {
+    callback(data, parentElement);
+  }
+}
 
 function convertToJson(res) {
   if (res.ok) {
@@ -26,7 +28,7 @@ export default class Alert {
   }
 
   async getData() {
-    const response = await fetch(`../public/json/${this.file}.json`);
+    const response = await fetch(`/json/${this.file}.json`);
     const data = await convertToJson(response);
     return data;
   }
