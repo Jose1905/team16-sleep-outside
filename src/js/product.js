@@ -1,4 +1,4 @@
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import { updateCartCount } from "./main.js";
 import { loadHeaderFooter, getParam } from "./utils.mjs";
 import ProductDetails from "./ProductDetails.mjs";
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const category = getParam("category");
 
-const dataSource = new ProductData(category);
+const dataSource = new ExternalServices("tents");
 
 const productId = getParam("product");
 

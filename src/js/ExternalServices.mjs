@@ -1,4 +1,3 @@
-
 const baseURL = import.meta.env.VITE_SERVER_URL;
 
 function convertToJson(res) {
@@ -38,3 +37,4 @@ export default class ExternalServices {
     return await fetch(`${baseURL}checkout/`, options).then(convertToJson);
   }
 }
+
