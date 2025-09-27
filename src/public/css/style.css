@@ -336,7 +336,28 @@ button {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* activity PVA */
+.original-price-strikethrough {
+  text-decoration: line-through;
+  color: gray;
+  margin-right: 5px;
+}
 
+.discounted-price-highlight {
+  font-weight: bold;
+  color: #4CAF50; /* green for discounted price */
+  margin-right: 5px;
+}
+
+.badge-discount {
+  background-color: #FF9800; /* orange badge */
+  color: white;
+  padding: 3px 6px;
+  font-weight: bold;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+/* End activity PVA */
 /* Fieldsets */
 form fieldset {
   border: 1px solid #ddd;

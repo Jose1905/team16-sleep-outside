@@ -10,6 +10,7 @@ export default class ProductDetails {
 
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
+    console.log("Product details:", this.product);
     this.renderProductDetails();
     document
       .getElementById("addToCart")
@@ -24,8 +25,40 @@ export default class ProductDetails {
     productImage.src = this.product.Images.PrimaryLarge;
     productImage.alt = this.product.NameWithoutBrand;
 
-    document.querySelector(".product-card__price").textContent =
-      this.product.FinalPrice;
+    const originalPriceEl = document.querySelector(".original-price");
+    const discountedPriceEl = document.querySelector(".discounted-price");
+    const discountBadgeEl = document.querySelector(".discount-badge");
+    // Calculate discount dynamically based on SuggestedRetailPrice and FinalPrice PVA
+    const discount =
+    this.product.SuggestedRetailPrice &&
+    this.product.SuggestedRetailPrice > this.product.FinalPrice
+      ? Math.round(
+          ((this.product.SuggestedRetailPrice - this.product.FinalPrice) /
+            this.product.SuggestedRetailPrice) *
+            100
+        )
+      : 0;
+
+    if (discount > 0) {
+      // Show original price with strikethrough
+      originalPriceEl.textContent = `$${this.product.SuggestedRetailPrice.toFixed(2)}`;
+      originalPriceEl.classList.add("original-price-strikethrough");
+    
+      // Show discounted price
+      discountedPriceEl.textContent = `$${this.product.FinalPrice.toFixed(2)}`;
+      discountedPriceEl.classList.add("discounted-price-highlight");
+    
+      // Show discount badge
+      discountBadgeEl.textContent = `${discount}% OFF`;
+      discountBadgeEl.classList.add("badge-discount");
+    } else {
+      // No discount
+      originalPriceEl.textContent = `$${this.product.FinalPrice.toFixed(2)}`;
+      discountedPriceEl.textContent = "";
+      discountBadgeEl.textContent = "";
+    }
+    
+
     document.querySelector(".product__color").textContent =
       this.product.Colors[0].ColorName;
     document.querySelector(".product__description").innerHTML =
