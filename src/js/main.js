@@ -2,6 +2,7 @@ import { loadHeaderFooter } from "./utils.mjs";
 
 loadHeaderFooter();
 
+
 // Update cart count on page load
 document.addEventListener("DOMContentLoaded", () => {
   //updateCartCount(".cart-count");

@@ -135,3 +135,4 @@ function setQuantity(id, qty) {
 }
 
 /*||| End Jay J. 09/19/2025 Quantity Controls + Cart Total |||*/
+module.exports = {cartTotal}
