@@ -18,5 +18,6 @@ const productList = new ProductList(
 );
 
 productList.init();
+
 const alert = new Alert("alerts");
 alert.renderAlert();

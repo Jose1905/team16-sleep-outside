@@ -1,5 +1,3 @@
-import { loadHeaderFooter } from "./utils.mjs";
-import ExternalServices from "./ExternalServices.mjs";
 import { getLocalStorage } from "./utils.mjs";
 
 export default class CheckoutProcess {

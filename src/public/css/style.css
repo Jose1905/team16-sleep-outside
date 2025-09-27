@@ -28,6 +28,10 @@ body {
 
 img {
   max-width: 100%;
+
+  @media (max-width: 700px) {
+    max-width: 75%;
+  }
 }
 
 header {
@@ -345,12 +349,12 @@ button {
 
 .discounted-price-highlight {
   font-weight: bold;
-  color: #4CAF50; /* green for discounted price */
+  color: #4caf50; /* green for discounted price */
   margin-right: 5px;
 }
 
 .badge-discount {
-  background-color: #FF9800; /* orange badge */
+  background-color: #ff9800; /* orange badge */
   color: white;
   padding: 3px 6px;
   font-weight: bold;
@@ -476,6 +480,10 @@ footer {
   height: auto; /* maintain aspect ratio */
   border-radius: 8px; /* optional: rounded corners */
   object-fit: cover; /* ensure images crop nicely if different sizes */
+
+  @media (max-width: 700px) {
+    max-width: 110px;
+  }
 }
 
 .product-categories figcaption {
@@ -544,10 +552,18 @@ footer {
 }
 
 @keyframes cart-bump {
-  0%   { transform: scale(1); }
-  30%  { transform: scale(1.12); }
-  60%  { transform: scale(0.96); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.12);
+  }
+  60% {
+    transform: scale(0.96);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .cart-count.pulse {
@@ -555,8 +571,14 @@ footer {
 }
 
 @keyframes count-pulse {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.25); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 /*||| End Jay J. 09/26/2025 Animate Cart Icon |||*/
