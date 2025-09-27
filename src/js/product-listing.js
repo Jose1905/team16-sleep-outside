@@ -1,8 +1,8 @@
 import ProductData from "./ExternalServices.mjs";
 import ProductList from "./ProductList.mjs";
-import { getParam, qs } from "./utils.mjs";
+import { getParam } from "./utils.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
-import Alert from "./Alert";
+import Alert from "./Alert.mjs";
 
 loadHeaderFooter();
 

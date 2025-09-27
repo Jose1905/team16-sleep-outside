@@ -38,6 +38,7 @@ export default class CheckoutProcess {
   }
 
   init() {
+
     this.list = getLocalStorage(this.key);
     this.calculateItemSummary();
     // console.log(this.list);
@@ -51,6 +52,7 @@ export default class CheckoutProcess {
     const itemNumElement = document.querySelector(
       this.outputSelector + " #num-items"
     );
+
     itemNumElement.innerText = this.list.length;
     // calculate the total of all the items in the cart
     const amounts = this.list.map((item) => parseFloat(item.product.FinalPrice));
@@ -80,10 +82,12 @@ export default class CheckoutProcess {
     const shipping = document.querySelector(`${this.outputSelector} #shipping`);
     const orderTotal = document.querySelector(`${this.outputSelector} #orderTotal`);
 
+
     tax.innerText = `$${this.tax.toFixed(2)}`;
     shipping.innerText = `$${this.shipping.toFixed(2)}`;
     orderTotal.innerText = `$${this.orderTotal.toFixed(2)}`;
   }
+
 
   async checkout() {
     const formElement = document.forms["checkout"];
@@ -104,3 +108,4 @@ export default class CheckoutProcess {
     }
   }
 }
+
