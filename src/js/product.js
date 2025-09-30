@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCartCount(); // no argument
 });
 
-const category = getParam("category");
+//const category = getParam("category");
 
 const dataSource = new ExternalServices("tents");
 
