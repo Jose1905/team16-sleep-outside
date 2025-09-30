@@ -28,6 +28,10 @@ body {
 
 img {
   max-width: 100%;
+
+  @media (max-width: 940px) {
+    max-width: 65%;
+  }
 }
 
 header {
@@ -114,6 +118,11 @@ p {
 .categories img {
   width: 90px;
   height: 90px;
+
+  @media (max-width: 940px) {
+    width: 70px;
+    height: 70px;
+  }
 }
 
 /* utility classes */
@@ -345,12 +354,12 @@ button {
 
 .discounted-price-highlight {
   font-weight: bold;
-  color: #4CAF50; /* green for discounted price */
+  color: #4caf50; /* green for discounted price */
   margin-right: 5px;
 }
 
 .badge-discount {
-  background-color: #FF9800; /* orange badge */
+  background-color: #ff9800; /* orange badge */
   color: white;
   padding: 3px 6px;
   font-weight: bold;
@@ -476,6 +485,10 @@ footer {
   height: auto; /* maintain aspect ratio */
   border-radius: 8px; /* optional: rounded corners */
   object-fit: cover; /* ensure images crop nicely if different sizes */
+  @media (max-width: 940px) {
+    width: 90px;
+    height: 90px;
+  }
 }
 
 .product-categories figcaption {
@@ -544,10 +557,18 @@ footer {
 }
 
 @keyframes cart-bump {
-  0%   { transform: scale(1); }
-  30%  { transform: scale(1.12); }
-  60%  { transform: scale(0.96); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.12);
+  }
+  60% {
+    transform: scale(0.96);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .cart-count.pulse {
@@ -555,9 +576,15 @@ footer {
 }
 
 @keyframes count-pulse {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.25); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 /*||| End Jay J. 09/26/2025 Animate Cart Icon |||*/
 
@@ -569,7 +596,7 @@ footer {
   background: #fff;
   border: 1px solid var(--light-grey);
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .checkout-form h2 {
@@ -620,7 +647,9 @@ footer {
   border: 1px solid var(--light-grey);
   border-radius: 6px;
   font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .checkout-form input:focus {
